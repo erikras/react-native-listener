@@ -1,33 +1,33 @@
 'use strict';
 var React = require('react'),
   PropTypes = React.PropTypes,
-  eventProps = [
-    'onKeyDown',
-    'onKeyPress',
-    'onKeyUp',
-    'onClick',
-    'onDoubleClick',
-    'onDrag',
-    'onDragEnd',
-    'onDragEnter',
-    'onDragExit',
-    'onDragLeave',
-    'onDragOver',
-    'onDragStart',
-    'onDrop',
-    'onMouseDown',
-    'onMouseEnter',
-    'onMouseLeave',
-    'onMouseMove',
-    'onMouseOut',
-    'onMouseOver',
-    'onMouseUp'
+  events = [
+    'KeyDown',
+    'KeyPress',
+    'KeyUp',
+    'Click',
+    'ContextMenu',
+    'DoubleClick',
+    'Drag',
+    'DragEnd',
+    'DragEnter',
+    'DragExit',
+    'DragLeave',
+    'DragOver',
+    'DragStart',
+    'Drop',
+    'MouseDown',
+    'MouseEnter',
+    'MouseLeave',
+    'MouseMove',
+    'MouseOut',
+    'MouseOver',
+    'MouseUp'
   ],
-  nativeEvents = [],
   forEach = function (fn) {
     var i;
-    for (i = 0; i < eventProps.length; i++) {
-      fn(eventProps[i], nativeEvents[i], i);
+    for (i = 0; i < events.length; i++) {
+      fn(events[i], i);
     }
   },
   propTypes = {
@@ -39,24 +39,25 @@ var React = require('react'),
   },
   NativeListener;
 
-forEach(function (prop, native, index) {
-  nativeEvents[index] = prop.substring(2).toLowerCase();
-  propTypes[prop] = PropTypes.func;
-});
-
 NativeListener = React.createClass({
   propTypes: propTypes,
   componentDidMount: function () {
     var props = this.props,
       element = this.getDOMNode();
-    forEach(function (prop, native) {
-      var capture = props[prop + 'Capture'],
-        bubble = props[prop];
+    forEach(function (event) {
+      var capture = props['on' + event + 'Capture'],
+        bubble = props['on' + event],
+        stop = props['stop' + event];
       if (capture && typeof capture === 'function') {
-        element.addEventListener(native, capture, true);
+        element.addEventListener(event.toLowerCase(), capture, true);
       }
       if (bubble && typeof bubble === 'function') {
-        element.addEventListener(native, bubble, false);
+        element.addEventListener(event.toLowerCase(), bubble, false);
+      }
+      if (stop === true) {
+        element.addEventListener(event.toLowerCase(), function (e) {
+          e.stopPropagation();
+        }, false);
       }
     });
   },
