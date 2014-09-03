@@ -25,13 +25,16 @@ npm install --save react-native-listener
 ## Usage
 
 In your JSX file, simply wrap the element (only one!) you want to listen to with `<NativeListener>` and
-put your event listener properties (e.g. `onClick`) on `<NativeListener>` instead of on your element.
+put your event listener properties (e.g. `onClick`, `onKeyDown`) on `<NativeListener>` instead of on your element.
 
 So, instead of this...
 
 ```jsx
 /** @jsx React.DOM */
 var MyComponent = React.createClass({
+  onButtonClick: function(event) {
+    // do something (event is React's [SyntheticEvent](https://facebook.github.io/react/docs/events.html) wrapper)
+  },
   render: function() {
     return (
       <div>
@@ -47,6 +50,9 @@ var MyComponent = React.createClass({
 /** @jsx React.DOM */
 var NativeListener = require('react-native-listener');
 var MyComponent = React.createClass({
+  onButtonClick: function(event) {
+    // do something (event is native browser event)
+  },
   render: function() {
     return (
       <div>
@@ -58,6 +64,16 @@ var MyComponent = React.createClass({
   }
 });
 ```
+
+**IMPORTANT: The event passed to your function is the native browser event, _NOT
+React's [SyntheticEvent](https://facebook.github.io/react/docs/events.html) wrapper)_!!**
+
+## Advanced Usage
+
+By default, the `onClick`, `onKeyDown` event listeners fire on _bubble_. If you understand [the
+difference between _bubble_ and _capture_](http://www.quirksmode.org/js/events_order.html) and
+you really need to listen on capture, you can simply append `Capture` to your event property.
+e.g. `onClickCapture`, `onKeyDownCapture`.
 
 ---
 
