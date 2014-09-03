@@ -8,7 +8,8 @@ react-native-listener
 React's uses [event delegation](https://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#under-the-hood-autobinding-and-event-delegation)
 with a single event listener on `document`. While this is great if your entire application is inside React,
 it's not so great if your React component is inserted into a page containing other event listeners. If an
-event happens inside your React component, _**your component will be the last to hear of the event**_.
+event happens inside your React component, _**your component will be the last to hear of the event**_. The
+event will first propagate to all its ancestor elements on the page.
 [Here is a JsFiddle to demonstrate](http://jsfiddle.net/erikras/bL5br9nb/).
 
 If your problem is that you need to stop events leaking out of your React component to the rest of the page,
@@ -33,7 +34,7 @@ So, instead of this...
 /** @jsx React.DOM */
 var MyComponent = React.createClass({
   onButtonClick: function(event) {
-    // do something (event is React's [SyntheticEvent](https://facebook.github.io/react/docs/events.html) wrapper)
+    // do something (event is React's SyntheticEvent)
   },
   render: function() {
     return (
@@ -44,7 +45,7 @@ var MyComponent = React.createClass({
   }
 });
 ```
-...do this...
+...do this:
 
 ```jsx
 /** @jsx React.DOM */
@@ -66,13 +67,13 @@ var MyComponent = React.createClass({
 ```
 
 **IMPORTANT: The event passed to your function is the native browser event, _NOT
-React's [SyntheticEvent](https://facebook.github.io/react/docs/events.html) wrapper)_!!**
+React's [SyntheticEvent](https://facebook.github.io/react/docs/events.html)!!**
 
 ## Advanced Usage
 
 By default, the `onClick`, `onKeyDown` event listeners fire on _bubble_. If you understand [the
 difference between _bubble_ and _capture_](http://www.quirksmode.org/js/events_order.html) and
-you really need to listen on capture, you can simply append `Capture` to your event property.
+you really need to listen on _capture_, you can simply append `Capture` to your event property.
 e.g. `onClickCapture`, `onKeyDownCapture`.
 
 ---
