@@ -1,7 +1,7 @@
 {
   "name": "react-native-listener",
   "description": "A utility component to allow easy access to browser native events",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://github.com/erikras/react-native-listener",
   "author": {
     "name": "Erik Rasmussen",

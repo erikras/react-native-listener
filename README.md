@@ -66,12 +66,14 @@ var MyComponent = React.createClass({
 });
 ```
 
-**IMPORTANT: The event passed to your function is the native browser event, _NOT
-React's [SyntheticEvent](https://facebook.github.io/react/docs/events.html)!!_**
+**IMPORTANT:** The event passed to your function is the native browser event, _NOT
+React's [SyntheticEvent](https://facebook.github.io/react/docs/events.html)!!_
 
 ### Convenience Properties
 
-If all you want to do is stop the propagation of an event, there are convenience properties to do that. `stopClick`, `stopKeyDown`. For example, say you wanted to allow normal hyperlinks to work, but your component is inside some element that JQuery is calling `event.preventDefault()` for clicks...
+If all you want to do is stop the propagation of an event, there are convenience properties to do that.
+`stopClick`, `stopKeyDown`. For example, say you wanted to allow normal hyperlinks to work, but your
+component is inside some element that JQuery is calling `event.preventDefault()` for clicks...
 
 ```jsx
 /** @jsx React.DOM */
@@ -89,7 +91,10 @@ var MyComponent = React.createClass({
 });
 ```
 
-**IMPORTANT: You cannot just put a `<NativeListener stopClick>` surrounding your whole component and expect regular React events to work inside it. That will also prevent the clicks from bubbling up to React's event system listening on the document.**
+**IMPORTANT:** You cannot just put a `<NativeListener stopClick>` surrounding your whole component and
+expect regular React events to work inside it. That will also prevent the clicks from bubbling up to
+React's event system listening on the document. If you block an event, you must use `<NativeListener>`
+to listen to that event everywhere inside the `<NativeListener>` element that is blocking the event.
 
 ## Advanced Usage
 
