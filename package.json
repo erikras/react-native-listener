@@ -1,0 +1,43 @@
+{
+  "name": "react-native-listener",
+  "description": "A utility component to allow easy access to browser native events",
+  "version": "0.0.1",
+  "homepage": "https://github.com/erikras/react-native-listener",
+  "author": {
+    "name": "Erik Rasmussen",
+    "url": "http://erikras.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/erikras/react-native-listener.git"
+  },
+  "bugs": {
+    "url": "git://github.com/erikras/react-native-listener/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/erikras/react-native-listener/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "react": "^0.11.1"
+  },
+  "keywords": [
+    "react",
+    "event",
+    "listener",
+    "native",
+    "reactjs"
+  ],
+  "files": [
+    "index.js",
+    "NativeListener.js",
+    "README.md",
+    "LICENSE-MIT"
+  ]
+}
