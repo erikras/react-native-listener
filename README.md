@@ -67,7 +67,7 @@ var MyComponent = React.createClass({
 ```
 
 **IMPORTANT: The event passed to your function is the native browser event, _NOT
-React's [SyntheticEvent](https://facebook.github.io/react/docs/events.html)!!**
+React's [SyntheticEvent](https://facebook.github.io/react/docs/events.html)!!_**
 
 ## Advanced Usage
 
