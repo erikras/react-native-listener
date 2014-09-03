@@ -29,7 +29,8 @@ put your event listener properties (e.g. `onClick`) on `<NativeListener>` instea
 
 So, instead of this...
 
-```js
+```jsx
+/** @jsx React.DOM */
 var MyComponent = React.createClass({
   render: function() {
     return (
@@ -42,7 +43,8 @@ var MyComponent = React.createClass({
 ```
 ...do this...
 
-```js
+```jsx
+/** @jsx React.DOM */
 var NativeListener = require('react-native-listener');
 var MyComponent = React.createClass({
   render: function() {
