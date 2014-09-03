@@ -78,4 +78,4 @@ e.g. `onClickCapture`, `onKeyDownCapture`.
 
 ---
 
-Module submitted by [Erik Rasmussen](http://erikras.com/) [@erikras](https://twitter.com/erikras)
+Module submitted by [Erik Rasmussen](https://www.npmjs.org/~erikras) [@erikras](https://twitter.com/erikras)
