@@ -1,5 +1,4 @@
-react-native-listener
-=====================
+# react-native-listener [![npm version](https://img.shields.io/npm/v/react-native-listener.svg?style=flat)](https://www.npmjs.org/package/react-native-listener) [![npm downloads](https://img.shields.io/npm/dm/react-native-listener.svg?style=flat)](https://www.npmjs.org/package/react-native-listener)
 
 > A utility component to allow easy access to browser native events.
 
