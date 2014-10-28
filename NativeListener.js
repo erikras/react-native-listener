@@ -1,6 +1,5 @@
 'use strict';
 var React = require('react'),
-  PropTypes = React.PropTypes,
   events = [
     'KeyDown',
     'KeyPress',
@@ -24,6 +23,12 @@ var React = require('react'),
     'MouseOver',
     'MouseUp'
   ],
+  aliases = {
+    'DoubleClick': 'dblclick'
+  },
+  toEventName = function(event) {
+    return (aliases[event] || event).toLowerCase();
+  },
   forEach = function (fn) {
     var i;
     for (i = 0; i < events.length; i++) {
@@ -49,13 +54,13 @@ NativeListener = React.createClass({
         bubble = props['on' + event],
         stop = props['stop' + event];
       if (capture && typeof capture === 'function') {
-        element.addEventListener(event.toLowerCase(), capture, true);
+        element.addEventListener(toEventName(event), capture, true);
       }
       if (bubble && typeof bubble === 'function') {
-        element.addEventListener(event.toLowerCase(), bubble, false);
+        element.addEventListener(toEventName(event), bubble, false);
       }
       if (stop === true) {
-        element.addEventListener(event.toLowerCase(), function (e) {
+        element.addEventListener(toEventName(event), function (e) {
           e.stopPropagation();
         }, false);
       }
