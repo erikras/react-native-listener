@@ -2,6 +2,10 @@
 
 > A utility component to allow easy access to browser native events.
 
+## THIS IS UNRELATED TO react-native!
+
+Please don't confuse this library with anything to do with [React Native](https://facebook.github.io/react-native/). This library is for dealing directly with _**browser**_ native events.
+
 ## Why?
 
 React's uses [event delegation](https://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#under-the-hood-autobinding-and-event-delegation)
