@@ -45,6 +45,7 @@ var React = require('react'),
   NativeListener;
 
 NativeListener = React.createClass({
+  displayName: 'NativeListener',
   propTypes: propTypes,
   componentDidMount: function () {
     var props = this.props,
