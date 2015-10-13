@@ -1,7 +1,7 @@
 {
   "name": "react-native-listener",
   "description": "A utility component to allow easy access to browser native events",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/erikras/react-native-listener",
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "main": "index.js",
+  "main": "./lib/index.js",
   "keywords": [
     "react",
     "event",
