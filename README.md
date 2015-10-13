@@ -4,7 +4,8 @@
 
 ## THIS IS UNRELATED TO react-native!
 
-Please don't confuse this library with anything to do with [React Native](https://facebook.github.io/react-native/). This library is for dealing directly with _**browser**_ native events.
+Please don't confuse this library with anything to do with [React Native](https://facebook.github.io/react-native/).
+This library is for dealing directly with _**browser**_ native events.
 
 ## Why?
 
@@ -33,40 +34,44 @@ put your event listener properties (e.g. `onClick`, `onKeyDown`) on `<NativeList
 
 So, instead of this...
 
-```jsx
-/** @jsx React.DOM */
-var MyComponent = React.createClass({
-  onButtonClick: function(event) {
+```javascript
+import React, {Component} from 'react';
+
+export default class MyComponent extends Component {
+  handleButtonClick(event) {
     // do something (event is React's SyntheticEvent)
-  },
-  render: function() {
+  }
+  
+  render() {
     return (
       <div>
-        <button onClick={this.onButtonClick}>Click Me!</button>
+        <button onClick={this.handleButtonClick.bind(this)}>Click Me!</button>
       </div>
       );
   }
-});
+}
 ```
 ...do this:
 
-```jsx
-/** @jsx React.DOM */
-var NativeListener = require('react-native-listener');
-var MyComponent = React.createClass({
-  onButtonClick: function(event) {
+```javascript
+import React, {Component} from 'react';
+import NativeListener from 'react-native-listener';
+
+export default class MyComponent extends Component {
+  handleButtonClick(event) {
     // do something (event is native browser event)
-  },
-  render: function() {
+  }
+  
+  render() {
     return (
       <div>
-        <NativeListener onClick={this.onButtonClick}>
+        <NativeListener onClick={this.handleButtonClick.bind(this)}>
           <button>Click Me!</button>
         </NativeListener>
       </div>
       );
   }
-});
+}
 ```
 
 **IMPORTANT:** The event passed to your function is the native browser event, _NOT
@@ -78,11 +83,12 @@ If all you want to do is stop the propagation of an event, there are convenience
 `stopClick`, `stopKeyDown`. For example, say you wanted to allow normal hyperlinks to work, but your
 component is inside some element that JQuery is calling `event.preventDefault()` for clicks...
 
-```jsx
-/** @jsx React.DOM */
-var NativeListener = require('react-native-listener');
-var MyComponent = React.createClass({
-  render: function() {
+```javascript
+import React, {Component} from 'react';
+import NativeListener from 'react-native-listener';
+
+export default class MyComponent extends Component {
+  render() {
     return (
       <div>
         <NativeListener stopClick>
@@ -108,4 +114,4 @@ e.g. `onClickCapture`, `onKeyDownCapture`.
 
 ---
 
-Module submitted by [Erik Rasmussen](https://www.npmjs.org/~erikras) [@erikras](https://twitter.com/erikras)
+Module written by [Erik Rasmussen](https://www.npmjs.org/~erikras) [@erikras](https://twitter.com/erikras)
