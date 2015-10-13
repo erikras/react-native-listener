@@ -42,15 +42,17 @@
     "eslint-plugin-react": "^3.5.1",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
+    "rifraf": "^2.0.2",
+    "rimraf": "^2.4.3",
     "webpack": "^1.12.2"
   },
   "npmName": "react-native-listener",
-   "npmFileMap": [
-     {
-       "basePath": "/dist/",
-       "files": [
-         "*.js"
-       ]
-     }
-   ]
+  "npmFileMap": [
+    {
+      "basePath": "/dist/",
+      "files": [
+        "*.js"
+      ]
+    }
+  ]
 }
