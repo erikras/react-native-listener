@@ -15,6 +15,7 @@ const events = [
   'DragOver',
   'DragStart',
   'Drop',
+  'Focus',
   'MouseDown',
   'MouseEnter',
   'MouseLeave',
