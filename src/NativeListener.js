@@ -31,7 +31,8 @@ const aliases = {
 	DoubleClick: 'dblclick'
 }
 
-const toEventName = (event): string => (aliases[event] || event).toLowerCase()
+const toEventName = (event: string): string =>
+	(aliases[event] || event).toLowerCase()
 
 export default class NativeListener extends Component {
 	static displayName = 'NativeListener'
