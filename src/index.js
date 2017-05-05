@@ -1,2 +1,2 @@
-import NativeListener from './NativeListener';
-export default NativeListener;
+import NativeListener from './NativeListener'
+export default NativeListener
