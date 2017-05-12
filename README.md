@@ -41,7 +41,7 @@ export default class MyComponent extends Component {
   handleButtonClick(event) {
     // do something (event is React's SyntheticEvent)
   }
-  
+
   render() {
     return (
       <div>
@@ -61,7 +61,7 @@ export default class MyComponent extends Component {
   handleButtonClick(event) {
     // do something (event is native browser event)
   }
-  
+
   render() {
     return (
       <div>
@@ -104,6 +104,15 @@ export default class MyComponent extends Component {
 expect regular React events to work inside it. That will also prevent the clicks from bubbling up to
 React's event system listening on the document. If you block an event, you must use `<NativeListener>`
 to listen to that event everywhere inside the `<NativeListener>` element that is blocking the event.
+
+### Note on 1.0.2 Update
+
+**If you use react-native-listener >= 1.0.2 in CommonJS environment, don’t forget to add `.default` to your import:**
+
+```diff
+- var NativeListener = require('react-native-listener')
++ var NativeListener = require('react-native-listener').default
+```
 
 ## Advanced Usage
 
