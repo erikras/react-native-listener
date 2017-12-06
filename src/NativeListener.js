@@ -24,7 +24,15 @@ const events = [
 	'MouseMove',
 	'MouseOut',
 	'MouseOver',
-	'MouseUp'
+	'MouseUp',
+	'PointerOver',
+	'PointerEnter',
+	'PointerDown',
+	'PointerMove',
+	'PointerUp',
+	'PointerCancel',
+	'PointerOut',
+	'PointerLeave'
 ]
 
 const aliases = {
