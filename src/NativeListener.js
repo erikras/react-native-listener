@@ -24,7 +24,12 @@ const events = [
 	'MouseMove',
 	'MouseOut',
 	'MouseOver',
-	'MouseUp'
+	'MouseUp',
+	'TouchStart',
+	'TouchMove',
+	'TouchEnd',
+	'TouchCancel',
+	'Scroll'
 ]
 
 const aliases = {
