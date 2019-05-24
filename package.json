@@ -1,7 +1,7 @@
 {
   "name": "react-native-listener",
   "description": "A utility component to allow easy access to browser native events",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "homepage": "https://github.com/erikras/react-native-listener",
   "repository": {
     "type": "git",
