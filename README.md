@@ -14,7 +14,7 @@ with a single event listener on `document`. While this is great if your entire a
 it's not so great if your React component is inserted into a page containing other event listeners. If an
 event happens inside your React component, _**your component will be the last to hear of the event**_. The
 event will first propagate to all its ancestor elements on the page.
-[Here is a JsFiddle to demonstrate](http://jsfiddle.net/erikras/bL5br9nb/).
+[Here is a Codesandbox to demonstrate](https://codesandbox.io/s/n07oj17614).
 
 If your problem is that you need to stop events leaking out of your React component to the rest of the page,
 `<NativeListener>` is the solution.
