@@ -54,7 +54,7 @@
     "react-dom": "^15.5.4",
     "rifraf": "^2.0.3",
     "rimraf": "^2.6.1",
-    "webpack": "^2.5.0"
+    "webpack": "^5.75.0"
   },
   "npmName": "react-native-listener",
   "npmFileMap": [
